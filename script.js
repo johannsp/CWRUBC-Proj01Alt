@@ -81,6 +81,7 @@ $(document).ready(function() {
       url: '',
       method: 'POST',
       headers: {
+        'Access-Control-Allow-Origin': 'http://api.cognitive.microsofttranslator.com',
         'Ocp-Apim-Subscription-Key': 'a9b0d0e3a840456a8257618e073be609',
         'content-type': 'application/json',
       },
