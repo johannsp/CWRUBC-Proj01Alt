@@ -102,9 +102,11 @@ $(document).ready(function() {
     console.log('∞° callData=\n'+callData);
     // Make asynchronous API call
     $.ajax(callObj).then(function (response) {
+      retData = response[0].translations[0].text;
+      phrasesTranslated.push(retData);
       console.log('response='+JSON.stringify(response));
-        // Display all the snippets starting each one on its own line
-        $("#translated-display").text(phrasesTranslated.join("\n"));
+      // Display all the snippets starting each one on its own line
+      $("#translated-display").text(phrasesTranslated.join("\n"));
     });
   }
 
