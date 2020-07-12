@@ -111,7 +111,7 @@ $(document).ready(function() {
       $("#text-display").text(phrasesTranslated.join("\n"));
       $("#translated-display").text(phrasesTranslated.join("\n"));
     }).catch(function(e) {;
-      console.log('in phrasesTranslated .catch e=\n'+e);
+      console.log('in phrasesTranslated .catch() e=\n'+JSON.stringify(e));
       phrasesTranslated.push('Err: '+e.message);
     });
   }
