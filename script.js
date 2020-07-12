@@ -59,16 +59,16 @@ $(document).ready(function() {
   $("#stop").on("click", function(event) {
     recognizer.stopContinuousRecognitionAsync(
         function () {
-            /* {{{ **
-            ** recognizer.close();
-            ** recognizer = undefined;
-            ** }}} */
+          /* {{{ **
+          ** recognizer.close();
+          ** recognizer = undefined;
+          ** }}} */
         },
         function (err) {
-            /* {{{ **
-            ** recognizer.close();
-            ** recognizer = undefined;
-            ** }}} */
+          /* {{{ **
+          ** recognizer.close();
+          ** recognizer = undefined;
+          ** }}} */
         });
     // Stop the lightning animation as feedback
     lightningToStill();
@@ -101,9 +101,11 @@ $(document).ready(function() {
     // Set call url to constructed value
     callObj.url = queryURL;
     // Set data property to an object with property Text inside an array
-    //escaped = phrasesAsRecorded[phraseIndex].replace(/'/g,"\\'");
-    escaped = phrasesAsRecorded[phraseIndex];
-    console.log('∞° escaped="'+escaped,'"');
+    // Do regular expression search and replace for apostrophe
+    // replacing with back slash escaped apostrophe, not the 
+    // doubled back slash is needed in the regex pattern.
+    escaped = phrasesAsRecorded[phraseIndex].replace(/'/g,"\\'");
+    console.log('escaped="'+escaped,'"');
     callObj.data = "[{'Text':'"+escaped+"'}]";
     // Make asynchronous API call
     $.ajax(callObj).then(function (response) {
