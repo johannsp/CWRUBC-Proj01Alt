@@ -105,7 +105,7 @@ $(document).ready(function() {
     console.log('∞° callData="'+callData,'"');
     // Make asynchronous API call
     $.ajax(callData).then(function (response) {
-      console.log(response);
+      console.log('response='+response);
     });
   }
 
