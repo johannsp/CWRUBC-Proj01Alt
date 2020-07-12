@@ -92,6 +92,7 @@ $(document).ready(function() {
       },
       data: ''
     }
+    var escaped = '';
     // Assemble query url and call data
     if (lang) {
       queryObj.to = lang;
@@ -100,7 +101,10 @@ $(document).ready(function() {
     // Set call url to constructed value
     callObj.url = queryURL;
     // Set data property to an object with property Text inside an array
-    callObj.data = "[{'Text':'"+phrasesAsRecorded[phraseIndex]+"'}]";
+    console.log('∞° phrasesAsRecorded[phraseIndex]="'+phrasesAsRecorded[phraseIndex],'"');
+    escaped = phrasesAsRecorded[phraseIndex].replace(/'/g,"\'");
+    console.log('∞° escaped="'+escaped,'"');
+    callObj.data = "[{'Text':'"+escaped+"'}]";
     // Make asynchronous API call
     $.ajax(callObj).then(function (response) {
       var retData = '';
