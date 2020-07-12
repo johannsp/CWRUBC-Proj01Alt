@@ -98,7 +98,7 @@ $(document).ready(function() {
     // Set data property to an object with property Text inside an array
     callObj.data = "[{'Text':'"+phrasesAsRecorded[phraseIndex]+"'}]";
     console.log('∞° callObj.data="'+callObj.data,'"');
-    callData = JSON.stringify(callObj);
+    //callData = JSON.stringify(callObj);
     console.log('∞° callData=\n'+callData);
     // Make asynchronous API call
     $.ajax(callData).then(function (response) {
