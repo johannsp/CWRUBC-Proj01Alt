@@ -100,7 +100,7 @@ $(document).ready(function() {
     callObj.data = "[{'Text':'"+phrasesAsRecorded[phraseIndex]+"'}]";
     console.log('∞° callObj.data="'+callObj.data,'"');
     callData = JSON.stringify(callObj);
-    console.log('∞° callData="'+callData,'"');
+    console.log('∞° callData=\n'+callData);
     // Make asynchronous API call
     $.ajax(callData).then(function (response) {
       console.log('response='+response);
