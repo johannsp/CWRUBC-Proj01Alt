@@ -68,7 +68,6 @@ $(document).ready(function() {
   });
 
   function passPhraseToMSTranslator(phraseIndex, lang) {
-    var callData = '';
     //URL PATTERN: {{{
     //https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es
     //sample value }}}
@@ -91,17 +90,14 @@ $(document).ready(function() {
       queryObj.to = lang;
     }
     queryURL += $.param(queryObj);
-    console.log('∞° queryURL="'+queryURL,'"');
     // Set call url to constructed value
     callObj.url = queryURL;
     // Set data property to an object with property Text inside an array
     callObj.data = "[{'Text':'"+phrasesAsRecorded[phraseIndex]+"'}]";
     console.log('∞° callObj.data="'+callObj.data,'"');
-    //callData = JSON.stringify(callObj);
-    callData = callObj;
-    console.log('∞° callData=\n'+callData);
     // Make asynchronous API call
     $.ajax(callObj).then(function (response) {
+      var retData = '';
       retData = response[0].translations[0].text;
       console.log('∞° retData="'+retData,'"');
       phrasesTranslated.push(retData);
