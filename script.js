@@ -120,6 +120,7 @@ $(document).ready(function() {
       console.log('in phrasesTranslated .catch() e=\n'+JSON.stringify(e));
       err = 'ERR '+e.responseText.error.code;
       err += 'Message '+e.responseText.error.message;
+      console.log('∞° err="'+err,'"');
       phrasesTranslated.push(err);
       $("#text-display").text(phrasesTranslated.join("\n"));
     });
