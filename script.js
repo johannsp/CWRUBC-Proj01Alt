@@ -25,6 +25,7 @@ $(document).ready(function() {
   }
 
   $("#start").on("click", function(event) {
+    initializeSpeechSDK();
     /* {{{ **
     ** // Just record one utterance then stop
     ** recognizer.recognizeOnceAsync(result => {
@@ -114,5 +115,7 @@ $(document).ready(function() {
   }
   // Copy convention of having a global scope copy of of window.SpeechSDK
   SpeechSDK = window.SpeechSDK;
-  initializeSpeechSDK();
+  /* {{{ **
+  ** initializeSpeechSDK();
+  ** }}} */
 });
