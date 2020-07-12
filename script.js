@@ -116,8 +116,10 @@ $(document).ready(function() {
       $("#text-display").text(phrasesTranslated.join("\n"));
       $("#translated-display").text(phrasesTranslated.join("\n"));
     }).catch(function(e) {;
+      var err='';
       console.log('in phrasesTranslated .catch() e=\n'+JSON.stringify(e));
-      phrasesTranslated.push('Err: '+e.message);
+      err = 'Err '+e.code+' status'+e.status+' message=\n'.e.message;
+      phrasesTranslated.push(err);
     });
   }
 
