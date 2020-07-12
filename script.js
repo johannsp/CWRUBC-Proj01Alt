@@ -110,6 +110,10 @@ $(document).ready(function() {
       // Display all the snippets starting each one on its own line
       $("#text-display").text(phrasesTranslated.join("\n"));
       $("#translated-display").text(phrasesTranslated.join("\n"));
+    }).catch(function(e) {;
+      console.log(e.message);
+      phrasesTranslated.push('Err: '+e.message);
+      console.log('response=\n'+JSON.stringify(response));
     });
   }
 
