@@ -101,7 +101,6 @@ $(document).ready(function() {
     // Set call url to constructed value
     callObj.url = queryURL;
     // Set data property to an object with property Text inside an array
-    console.log('∞° phrasesAsRecorded[phraseIndex]="'+phrasesAsRecorded[phraseIndex],'"');
     //escaped = phrasesAsRecorded[phraseIndex].replace(/'/g,"\\'");
     escaped = phrasesAsRecorded[phraseIndex];
     console.log('∞° escaped="'+escaped,'"');
@@ -111,21 +110,17 @@ $(document).ready(function() {
       var retData = '';
       retData = response[0].translations[0].text;
       phrasesTranslated.push(retData);
-      console.log('response=\n'+JSON.stringify(response));
+      //console.log('response=\n'+JSON.stringify(response));
       // Display all the snippets starting each one on its own line
-      $("#text-display").text(phrasesTranslated.join("\n"));
+      //$("#text-display").text(phrasesTranslated.join("\n"));
       $("#translated-display").text(phrasesTranslated.join("\n"));
     }).catch(function(e) {;
       var err='';
-      var errObj={};
       console.log('in phrasesTranslated .catch() e=\n'+JSON.stringify(e));
-      err = 'ERROR '+e.status
-      err += 'Message '+e.responseText;
-      console.log('∞° err="'+err,'"');
-      errObj = JSON.parse(e.responseText);
-      console.log('∞° errObj.message="'+errObj.message,'"');
+      err = 'Could not translate that.  Please try saying that again.';
       phrasesTranslated.push(err);
-      $("#text-display").text(phrasesTranslated.join("\n"));
+      //$("#text-display").text(phrasesTranslated.join("\n"));
+      $("#translated-display").text(phrasesTranslated.join("\n"));
     });
   }
 
