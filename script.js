@@ -102,7 +102,7 @@ $(document).ready(function() {
     callObj.url = queryURL;
     // Set data property to an object with property Text inside an array
     console.log('∞° phrasesAsRecorded[phraseIndex]="'+phrasesAsRecorded[phraseIndex],'"');
-    escaped = phrasesAsRecorded[phraseIndex].replace(/'/g,"\'");
+    escaped = phrasesAsRecorded[phraseIndex].replace(/'/g,"\\'");
     console.log('∞° escaped="'+escaped,'"');
     callObj.data = "[{'Text':'"+escaped+"'}]";
     // Make asynchronous API call
