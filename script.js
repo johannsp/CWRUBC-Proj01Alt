@@ -25,7 +25,9 @@ $(document).ready(function() {
   }
 
   $("#start").on("click", function(event) {
-    initializeSpeechSDK();
+    /* {{{ **
+    ** initializeSpeechSDK();
+    ** }}} */
     /* {{{ **
     ** // Just record one utterance then stop
     ** recognizer.recognizeOnceAsync(result => {
@@ -57,12 +59,16 @@ $(document).ready(function() {
   $("#stop").on("click", function(event) {
     recognizer.stopContinuousRecognitionAsync(
         function () {
-            recognizer.close();
-            recognizer = undefined;
+            /* {{{ **
+            ** recognizer.close();
+            ** recognizer = undefined;
+            ** }}} */
         },
         function (err) {
-            recognizer.close();
-            recognizer = undefined;
+            /* {{{ **
+            ** recognizer.close();
+            ** recognizer = undefined;
+            ** }}} */
         });
     // Stop the lightning animation as feedback
     lightningToStill();
@@ -100,7 +106,7 @@ $(document).ready(function() {
       var retData = '';
       retData = response[0].translations[0].text;
       phrasesTranslated.push(retData);
-      console.log('response='+JSON.stringify(response));
+      console.log('response=\n'+JSON.stringify(response));
       // Display all the snippets starting each one on its own line
       $("#text-display").text(phrasesTranslated.join("\n"));
       $("#translated-display").text(phrasesTranslated.join("\n"));
@@ -114,4 +120,5 @@ $(document).ready(function() {
   }
   // Copy convention of having a global scope copy of of window.SpeechSDK
   SpeechSDK = window.SpeechSDK;
+  initializeSpeechSDK();
 });
