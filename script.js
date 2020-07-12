@@ -102,10 +102,8 @@ $(document).ready(function() {
       phrasesTranslated.push(retData);
       console.log('response='+JSON.stringify(response));
       // Display all the snippets starting each one on its own line
-      /* {{{ **
-      ** $("#translated-display").text(phrasesTranslated.join("\n"));
-      ** }}} */
       $("#text-display").text(phrasesTranslated.join("\n"));
+      $("#translated-display").text(phrasesTranslated.join("\n"));
     });
   }
 
