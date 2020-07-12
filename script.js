@@ -84,9 +84,7 @@ $(document).ready(function() {
       method: 'POST',
       headers: {
         'Ocp-Apim-Subscription-Key': 'a9b0d0e3a840456a8257618e073be609',
-        'Ocp-Apim-Subscription-Region': 'global',
         'content-type': 'application/json',
-        'accept': 'application/json'
       },
       data: ''
     }
@@ -106,6 +104,8 @@ $(document).ready(function() {
     // Make asynchronous API call
     $.ajax(callData).then(function (response) {
       console.log('response='+response);
+        // Display all the snippets starting each one on its own line
+        $("#translated-display").text(phrasesTranslated.join("\n"));
     });
   }
 

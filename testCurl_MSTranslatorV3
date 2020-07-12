@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de" \
+     -H "Ocp-Apim-Subscription-Key:a9b0d0e3a840456a8257618e073be609" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
