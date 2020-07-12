@@ -117,10 +117,13 @@ $(document).ready(function() {
       $("#translated-display").text(phrasesTranslated.join("\n"));
     }).catch(function(e) {;
       var err='';
+      var errObj={};
       console.log('in phrasesTranslated .catch() e=\n'+JSON.stringify(e));
-      err = 'ERR '+e.responseText.error.code;
-      err += 'Message '+e.responseText.error.message;
+      err = 'ERROR '+e.status
+      err += 'Message '+e.responseText;
       console.log('∞° err="'+err,'"');
+      errObj = json.parse(e.responseText);
+      console.log('∞° errObj.message="'+errObj.message,'"');
       phrasesTranslated.push(err);
       $("#text-display").text(phrasesTranslated.join("\n"));
     });
