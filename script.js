@@ -122,7 +122,7 @@ $(document).ready(function() {
       err = 'ERROR '+e.status
       err += 'Message '+e.responseText;
       console.log('∞° err="'+err,'"');
-      errObj = json.parse(e.responseText);
+      errObj = JSON.parse(e.responseText);
       console.log('∞° errObj.message="'+errObj.message,'"');
       phrasesTranslated.push(err);
       $("#text-display").text(phrasesTranslated.join("\n"));
