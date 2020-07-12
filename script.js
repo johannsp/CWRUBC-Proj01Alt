@@ -78,8 +78,6 @@ $(document).ready(function() {
       to:'de'
     };
     var callObj = {
-      async: true,
-      crossDomain: true,
       url: '',
       method: 'POST',
       headers: {
