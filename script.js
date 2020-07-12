@@ -103,6 +103,7 @@ $(document).ready(function() {
     // Make asynchronous API call
     $.ajax(callObj).then(function (response) {
       retData = response[0].translations[0].text;
+      console.log('∞° retData="'+retData,'"');
       phrasesTranslated.push(retData);
       console.log('response='+JSON.stringify(response));
       // Display all the snippets starting each one on its own line
