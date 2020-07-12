@@ -101,7 +101,7 @@ $(document).ready(function() {
     callData = callObj;
     console.log('∞° callData=\n'+callData);
     // Make asynchronous API call
-    $.ajax(callData).then(function (response) {
+    $.ajax(callObj).then(function (response) {
       console.log('response='+response);
         // Display all the snippets starting each one on its own line
         $("#translated-display").text(phrasesTranslated.join("\n"));
