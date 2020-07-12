@@ -118,7 +118,8 @@ $(document).ready(function() {
     }).catch(function(e) {;
       var err='';
       console.log('in phrasesTranslated .catch() e=\n'+JSON.stringify(e));
-      err = 'Err '+e.code+' status'+e.status+' message=\n'.e.message;
+      err = 'Err '+e.responseText.error.code;
+      err += 'Message '+e.responseText.error.message;
       phrasesTranslated.push(err);
     });
   }
