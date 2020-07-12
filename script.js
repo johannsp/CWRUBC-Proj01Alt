@@ -95,16 +95,17 @@ $(document).ready(function() {
     callObj.url = queryURL;
     // Set data property to an object with property Text inside an array
     callObj.data = "[{'Text':'"+phrasesAsRecorded[phraseIndex]+"'}]";
-    console.log('∞° callObj.data="'+callObj.data,'"');
     // Make asynchronous API call
     $.ajax(callObj).then(function (response) {
       var retData = '';
       retData = response[0].translations[0].text;
-      console.log('∞° retData="'+retData,'"');
       phrasesTranslated.push(retData);
       console.log('response='+JSON.stringify(response));
       // Display all the snippets starting each one on its own line
-      $("#translated-display").text(phrasesTranslated.join("\n"));
+      /* {{{ **
+      ** $("#translated-display").text(phrasesTranslated.join("\n"));
+      ** }}} */
+      $("#text-display").text(phrasesTranslated.join("\n"));
     });
   }
 
@@ -115,7 +116,4 @@ $(document).ready(function() {
   }
   // Copy convention of having a global scope copy of of window.SpeechSDK
   SpeechSDK = window.SpeechSDK;
-  /* {{{ **
-  ** initializeSpeechSDK();
-  ** }}} */
 });
